@@ -1,5 +1,6 @@
 package core_05.Array_engine;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ArrayCreator {
@@ -7,10 +8,17 @@ public class ArrayCreator {
         Scanner input = new Scanner(System.in);
         int[] myArray = new int[5];
 
-        for (int i =0; i < myArray.length; i++){
-            System.out.println("Please enter number " + (i+1) + " : ");
-            myArray[i] = input.nextInt();
+        try{
+            for (int i =0; i < myArray.length; i++){
+                System.out.println("Please enter number " + (i+1) + " : ");
+                myArray[i] = input.nextInt();
+            }
+
+        }catch (InputMismatchException e){
+            System.out.printf("Error: Please enter only positive integers for Array elements.\n");
+            arrayInit();
         }
+
 
         System.out.println("You entered the following data: ");
 
